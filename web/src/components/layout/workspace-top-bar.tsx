@@ -1,6 +1,7 @@
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { Link, useLocation } from "react-router";
 
+import { BrandDefaultMark, BrandLogoFrame } from "@/components/brand/brand-logo";
 import { SystemAnnouncementCenter } from "@/components/layout/system-announcement-center";
 import { WorkspaceAccountMenu } from "@/components/layout/workspace-account-menu";
 import { WorkspaceCreditGiftMark } from "@/components/layout/workspace-credit-gift-mark";
@@ -42,7 +43,10 @@ export function WorkspaceTopBar({ sidebarOpen, onToggleSidebar }: { sidebarOpen:
                 {sidebarOpen ? <PanelLeftClose className="size-4" /> : <PanelLeftOpen className="size-4" />}
             </button>
             <nav className="app-workspace-topbar-breadcrumb" aria-label="当前位置">
-                <Link to="/" className="font-medium text-foreground/65 transition-colors hover:text-foreground">{brandName}</Link>
+                <Link to="/" className="inline-flex items-center gap-1.5 font-medium text-foreground/65 transition-colors hover:text-foreground">
+                    <BrandLogoFrame className="grid size-6 shrink-0 place-items-center rounded-[var(--r-sm)]" logoClassName="size-5 object-contain" alt="" fallback={<BrandDefaultMark className="size-5" />} />
+                    {brandName}
+                </Link>
                 <span aria-hidden="true">/</span>
                 <span className="truncate font-medium text-foreground">{pageTitle}</span>
             </nav>

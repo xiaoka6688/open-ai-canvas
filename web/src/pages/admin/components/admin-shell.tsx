@@ -15,7 +15,6 @@ import {
     FileClock,
     HardDrive,
     Home,
-    Infinity as InfinityIcon,
     KeyRound,
     Layers3,
     Mail,
@@ -40,7 +39,7 @@ import { Suspense, useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router";
 
 import { AppChangelogButton } from "@/components/layout/app-changelog-modal";
-import { BrandLogoFrame } from "@/components/brand/brand-logo";
+import { BrandDefaultMark, BrandLogoFrame } from "@/components/brand/brand-logo";
 import { publishWorkspaceSidebarCollapsed, readWorkspaceSidebarCollapsed, subscribeWorkspaceSidebarCollapsed } from "@/components/layout/workspace-sidebar-state";
 import { cn } from "@/lib/utils";
 import { useThemeStore } from "@/stores/use-theme-store";
@@ -147,7 +146,7 @@ export function AdminShell() {
                             <AdminTooltip title={collapsed ? "查看更新日志" : undefined} placement="right">
                                 <AppChangelogButton
                                     className={cn("admin-sidebar-brand-button", collapsed && "is-collapsed")}
-                                    icon={<BrandLogoFrame className="admin-sidebar-brand-mark grid shrink-0 place-items-center bg-foreground text-background" logoClassName="size-5 object-contain" alt="" fallback={<InfinityIcon className="size-4" />} />}
+                                    icon={<BrandLogoFrame className="admin-sidebar-brand-mark grid shrink-0 place-items-center bg-foreground text-background" logoClassName="size-5 object-contain" alt="" fallback={<BrandDefaultMark className="size-5" />} />}
                                     label={appearance.brandName}
                                     showLabel={!collapsed}
                                     showVersion={!collapsed}

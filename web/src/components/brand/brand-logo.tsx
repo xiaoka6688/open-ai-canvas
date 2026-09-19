@@ -35,6 +35,12 @@ export function BrandLogo({ className, fallback, alt = "", theme = "auto" }: Bra
     );
 }
 
+// Built-in brand bitmap shipped at web/public/logo.png. Used as the visual
+// fallback whenever the deployment has not configured a custom logo asset.
+export function BrandDefaultMark({ className }: { className?: string }) {
+    return <img src="/logo.png" alt="" className={cn("object-contain", className)} draggable={false} />;
+}
+
 export function BrandLogoFrame({ className, logoClassName, fallback, alt = "", theme = "auto" }: BrandLogoProps & { logoClassName?: string }) {
     const frameEnabled = useAppearanceStore((state) => state.appearance.logoFrameEnabled);
     const unframedStyle: CSSProperties | undefined = frameEnabled
